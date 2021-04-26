@@ -66,17 +66,4 @@ class IgeConan(ConanFile):
 
     def __collect_include(self, inc_dir):
         inc_dirs = ['include']
-        platform_inc_dir = ['include', 'src', 'source']
-        if self.settings.os == "Windows":
-            platform_inc_dir += ['pc', 'windows', 'win32', 'msvc']
-        elif self.settings.os == "Android":
-            platform_inc_dir += ['android']
-        elif self.settings.os == "Macos":
-            platform_inc_dir += ['macos', 'mac', 'osx']
-        else:
-            platform_inc_dir += ['ios']
-        for root, dirs, files in os.walk(inc_dir):
-            for d in dirs:
-                if d.lower() in platform_inc_dir:
-                    inc_dirs.append(os.path.relpath(os.path.join('include', root, d), inc_dir).replace('\\', '/'))
         return inc_dirs
