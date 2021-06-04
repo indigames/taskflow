@@ -19,7 +19,7 @@ class IgeConan(ConanFile):
 
     def package(self):
         self.copy("*.h*", dst="include/taskflow", src="taskflow")
-        self.run(f'conan upload {self.name}/{self.version}@ige/test --remote ige-center --force --confirm')
+        self.run(f'conan upload {self.name}/{self.version}@ige/test --all --remote ige-center --force --confirm')
 
     def package_id(self):
         self.info.header_only()
