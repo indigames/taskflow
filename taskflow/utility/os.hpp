@@ -35,7 +35,7 @@
 #if (defined __linux)
 #undef TF_OS_LINUX
 #define TF_OS_LINUX 1
-#elif (defined __linux__)
+#elif (defined __linux__) || defined(__EMSCRIPTEN__)
 #undef TF_OS_LINUX
 #define TF_OS_LINUX 1
 #else
